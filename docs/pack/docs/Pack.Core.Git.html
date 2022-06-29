@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Pack.Core.Git</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Pack.Core.Git
+  <nav><a href="../index.html">Index</a>
+
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+
+</header>
+<div class="container"><div id="module-header"><h1>Pack.Core.Git</h1><span style="float:right">(<a href="Pack.Core.Git.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Pack.Core.Git.dbRepo"><code><a class="type" href="Pack.Core.Git.html#Pack.Core.Git.dbRepo"><span class="name function">dbRepo</span></a>&ensp;:&ensp;<a class="type" href="Pack.Core.Types.html#Pack.Core.Types.URL"><span class="name type">URL</span></a></code></dt><dd><pre>  URL&ensp;of&ensp;package&ensp;collections&ensp;repository<br>  <br>  TODO:&ensp;This&ensp;should&ensp;become&ensp;a&ensp;command&ensp;line&ensp;argument</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Pack.Core.Git.gitClone"><code><a class="type" href="Pack.Core.Git.html#Pack.Core.Git.gitClone"><span class="name function">gitClone</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.IO.HasIO"><span class="name type">HasIO</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Pack.Core.Types.html#Pack.Core.Types.URL"><span class="name type">URL</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Data.FilePath.Path"><span class="name type">Path</span></span>&ensp;<span class="type resolved" title="Data.FilePath.Abs"><span class="name constructor">Abs</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Control.Monad.Error.Either.EitherT"><span class="name type">EitherT</span></span>&ensp;<a class="type" href="Pack.Core.Types.html#Pack.Core.Types.PackErr"><span class="name type">PackErr</span></a>&ensp;<span class="boundvar">io</span>&ensp;()</code></dt><dd><pre>  Clones&ensp;a&ensp;GitHub&ensp;repository&ensp;to&ensp;the&ensp;given&ensp;destination</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Pack.Core.Git.gitCheckout"><code><a class="type" href="Pack.Core.Git.html#Pack.Core.Git.gitCheckout"><span class="name function">gitCheckout</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.IO.HasIO"><span class="name type">HasIO</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Pack.Core.Types.html#Pack.Core.Types.Commit"><span class="name type">Commit</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Control.Monad.Error.Either.EitherT"><span class="name type">EitherT</span></span>&ensp;<a class="type" href="Pack.Core.Types.html#Pack.Core.Types.PackErr"><span class="name type">PackErr</span></a>&ensp;<span class="boundvar">io</span>&ensp;()</code></dt><dd><pre>  Checkout&ensp;to&ensp;the&ensp;given&ensp;commit</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Pack.Core.Git.gitLatest"><code><a class="type" href="Pack.Core.Git.html#Pack.Core.Git.gitLatest"><span class="name function">gitLatest</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.IO.HasIO"><span class="name type">HasIO</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Pack.Core.Types.html#Pack.Core.Types.URL"><span class="name type">URL</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Pack.Core.Types.html#Pack.Core.Types.Commit"><span class="name type">Commit</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Control.Monad.Error.Either.EitherT"><span class="name type">EitherT</span></span>&ensp;<a class="type" href="Pack.Core.Types.html#Pack.Core.Types.PackErr"><span class="name type">PackErr</span></a>&ensp;<span class="boundvar">io</span>&ensp;<a class="type" href="Pack.Core.Types.html#Pack.Core.Types.Commit"><span class="name type">Commit</span></a></code></dt><dd><pre>  Query&ensp;GitHub&ensp;for&ensp;the&ensp;latest&ensp;commit&ensp;of&ensp;the&ensp;main&ensp;branch.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="Pack.Core.Git.withGit"><code><a class="type" href="Pack.Core.Git.html#Pack.Core.Git.withGit"><span class="name function">withGit</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.IO.HasIO"><span class="name type">HasIO</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<span class="type resolved" title="Data.FilePath.Path"><span class="name type">Path</span></span>&ensp;<span class="type resolved" title="Data.FilePath.Abs"><span class="name constructor">Abs</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Pack.Core.Types.html#Pack.Core.Types.URL"><span class="name type">URL</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Pack.Core.Types.html#Pack.Core.Types.Commit"><span class="name type">Commit</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="type resolved" title="Data.FilePath.Path"><span class="name type">Path</span></span>&ensp;<span class="type resolved" title="Data.FilePath.Abs"><span class="name constructor">Abs</span></span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Control.Monad.Error.Either.EitherT"><span class="name type">EitherT</span></span>&ensp;<a class="type" href="Pack.Core.Types.html#Pack.Core.Types.PackErr"><span class="name type">PackErr</span></a>&ensp;<span class="boundvar">io</span>&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Control.Monad.Error.Either.EitherT"><span class="name type">EitherT</span></span>&ensp;<a class="type" href="Pack.Core.Types.html#Pack.Core.Types.PackErr"><span class="name type">PackErr</span></a>&ensp;<span class="boundvar">io</span>&ensp;<span class="boundvar">a</span></code></dt><dd><pre>  Clone&ensp;a&ensp;git&ensp;repository&ensp;into&ensp;`dir`,&ensp;switch&ensp;to&ensp;the<br>  given&ensp;commit&ensp;and&ensp;run&ensp;the&ensp;given&ensp;action.<br>  <br>  CAUTION:&ensp;`dir`&ensp;must&ensp;be&ensp;empty&ensp;or&ensp;non-existant,&ensp;otherwise<br>  this&ensp;will&ensp;fail.</pre><br>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.5.1-38caff23b</footer></body></html>
