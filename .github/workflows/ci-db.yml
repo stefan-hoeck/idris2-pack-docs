@@ -26,7 +26,7 @@ jobs:
         with:
           repository: stefan-hoeck/idris2-pack
       - name: Run micropack
-        run:  make micropack SCHEME="chezscheme"
+        run: make micropack SCHEME="chezscheme"
       - name: Build pack-admin
         run: "$HOME/.pack/bin/pack" --no-prompt build pack-admin.ipkg
       - name: Extract Collection from HEAD
