@@ -36,8 +36,8 @@ jobs:
       - name: Check Collection
         run: |
           mkdir -p docs
-          mkdir "$HOME/output"
-          build/exec/pack-admin --no-prompt check-collection testdb "$HOME/output/STATUS.md"
+          mkdir $HOME/output
+          build/exec/pack-admin --no-prompt check-collection testdb $HOME/output/STATUS.md
       - name: Checkout pack-docs
         uses: actions/checkout@v3
         if: always()
@@ -46,7 +46,7 @@ jobs:
           fetch-depth: 0
       - name: Copy collection
         if: always()
-        run: cp -ua "$HOME/output/docs/*" "docs/"
+        run: cp -ua $HOME/output/docs/* docs
       - name: Commit files
         if: always()
         run: |
