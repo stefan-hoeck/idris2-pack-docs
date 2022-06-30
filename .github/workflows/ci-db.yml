@@ -36,7 +36,6 @@ jobs:
           mkdir -p docs
           mkdir "$HOME/output"
           build/exec/pack-admin --no-prompt check-collection testdb "$HOME/output/STATUS.md"
-
       - name: Checkout pack-docs
         uses: actions/checkout@v3
         with:
