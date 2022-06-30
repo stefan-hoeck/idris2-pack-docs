@@ -25,10 +25,10 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: stefan-hoeck/idris2-pack
-      - name: Run micropack
+      - name: Run MicroPack
         run: make micropack SCHEME="chezscheme"
       - name: Build pack-admin
-        run: "$HOME/.pack/bin/pack" --no-prompt build pack-admin.ipkg
+        run: $HOME/.pack/bin/pack --no-prompt build pack-admin.ipkg
       - name: Extract Collection from HEAD
         run: build/exec/pack-admin --no-prompt extract-from-head "$HOME/.pack/db/testdb.toml"
       - name: Check Collection
