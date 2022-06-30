@@ -38,12 +38,15 @@ jobs:
           build/exec/pack-admin --no-prompt check-collection testdb "$HOME/output/STATUS.md"
       - name: Checkout pack-docs
         uses: actions/checkout@v3
+        if: always()
         with:
           persist-credentials: false
           fetch-depth: 0
       - name: Copy collection
-        run: cp -ua "$HOME/output/*" "docs/"
+        if: always()
+        run: cp -ua "$HOME/output/docs/*" "docs/"
       - name: Commit files
+        if: always()
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
@@ -51,6 +54,7 @@ jobs:
           git commit -m "[ docs ] API docs update" -m "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
       - name: Push changes
         uses: ad-m/github-push-action@master
+        if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
