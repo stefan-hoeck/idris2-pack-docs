@@ -46,7 +46,7 @@ jobs:
           fetch-depth: 0
       - name: Copy collection
         if: always()
-        run: cp -ua $HOME/output/docs/* docs
+        run: cp -a $HOME/output/docs/* docs
       - name: Commit files
         if: always()
         run: |
