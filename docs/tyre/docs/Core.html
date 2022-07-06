@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Core</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+<body class="namespace">
+<header>
+  <strong>Idris2Doc</strong> : Core
+  <nav><a href="../index.html">Index</a>
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+</header>
+<div class="container"><div id="module-header"><h1>Core</h1><span style="float:right">(<a href="Core.src.html">source</a>)</span><pre></pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Codes</code><h2>Definitions</h2><dl class="decls"><dt id="Core.CoreRE"><code><span class="keyword">data</span>&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span><br>  <b>Constructors</b>:<br><dl class="decls">  <dt id="Core.Pred"><code><a class="type" href="Core.html#Core.Pred"><span class="name constructor">Pred</span></a>&ensp;:&ensp;(<span class="name type">Char</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a></code></dt>  <dt id="Core.Concat"><code><a class="type" href="Core.html#Core.Concat"><span class="name constructor">Concat</span></a>&ensp;:&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a></code></dt>  <dt id="Core.Group"><code><a class="type" href="Core.html#Core.Group"><span class="name constructor">Group</span></a>&ensp;:&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a></code></dt>  <dt id="Core.Empty"><code><a class="type" href="Core.html#Core.Empty"><span class="name constructor">Empty</span></a>&ensp;:&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a></code></dt>  <dt id="Core.Alt"><code><a class="type" href="Core.html#Core.Alt"><span class="name constructor">Alt</span></a>&ensp;:&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a></code></dt>  <dt id="Core.Star"><code><a class="type" href="Core.html#Core.Star"><span class="name constructor">Star</span></a>&ensp;:&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a></code></dt></dl></dd><dt id="Core.ShapeCode"><code><a class="type" href="Core.html#Core.ShapeCode"><span class="name function">ShapeCode</span></a>&ensp;:&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="Codes.html#Codes.Code"><span class="name type">Code</span></a></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Core.Shape"><code><a class="type" href="Core.html#Core.Shape"><span class="name function">Shape</span></a>&ensp;:&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Core.ShapeSimp"><code><a class="type" href="Core.html#Core.ShapeSimp"><span class="name function">ShapeSimp</span></a>&ensp;:&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd><dt id="Core.showAux"><code><a class="type" href="Core.html#Core.showAux"><span class="name function">showAux</span></a>&ensp;:&ensp;<a class="type" href="Core.html#Core.Shape"><span class="name function">Shape</span></a>&ensp;<span class="boundvar">re</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.5.1-7db20d38a</footer></body></html>
