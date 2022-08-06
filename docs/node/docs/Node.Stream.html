@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>url</title>
-  <link rel="stylesheet" type="text/css" id="preferredStyle" href="default.css">
+  <title>Node.Stream</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="../default.css">
   <script>
     /* Updates the stylesheet to use the preferred one.
        Note that we set the link to root ++ sourceLoc because the config
@@ -10,7 +10,7 @@
        page to page.
     */
     function setStyleSource (sourceLoc) {
-      document.getElementById("preferredStyle").href = "" + sourceLoc + ".css";
+      document.getElementById("preferredStyle").href = "../" + sourceLoc + ".css";
       document.getElementById("selectPreferredStyle").value = sourceLoc;
     }
     /* Initialises the preferred style sheet:
@@ -31,10 +31,10 @@
     }
     </script>
 </head>
-<body class="index">
+<body class="namespace">
 <header>
-  <strong>Idris2Doc</strong> : url
-  <nav><a href="index.html">Index</a>
+  <strong>Idris2Doc</strong> : Node.Stream
+  <nav><a href="../index.html">Index</a>
   <select id="selectPreferredStyle">
     <option value="default">Default</option>
 <option value="alternative">Alternative</option>
@@ -55,4 +55,4 @@
   });
 </script>
 </header>
-<div class="container"><h1>Package url - Namespaces</h1><ul class="names"><li><a class="code" href="docs/Network.URL.html">Network.URL</a></li><li><a class="code" href="docs/Network.URL.General.html">Network.URL.General</a></li><li><a class="code" href="docs/Network.URL.HTTP.html">Network.URL.HTTP</a></li><li><a class="code" href="docs/Network.URL.HTTP.Data.html">Network.URL.HTTP.Data</a></li><li><a class="code" href="docs/Network.URL.HTTP.Parser.html">Network.URL.HTTP.Parser</a></li><li><a class="code" href="docs/Network.URL.Internal.Predicate.html">Network.URL.Internal.Predicate</a></li><li><a class="code" href="docs/Network.URL.Internal.StringParser.html">Network.URL.Internal.StringParser</a></li></ul></div><footer>Produced by Idris 2 version 0.5.1-2aaad190f</footer></body></html>
+<div class="container"><div id="module-header"><h1>Node.Stream</h1><span style="float:right">(<a href="Node.Stream.src.html">source</a>)</span><pre></pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Node.Stream.Readable<br><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Node.Stream.Writeable</code></div><footer>Produced by Idris 2 version 0.5.1-2aaad190f</footer></body></html>
