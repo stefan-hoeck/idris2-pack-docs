@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>prob-fx</title>
+  <link rel="stylesheet" type="text/css" id="preferredStyle" href="default.css">
+  <script>
+    /* Updates the stylesheet to use the preferred one.
+       Note that we set the link to root ++ sourceLoc because the config
+       is shared across the whole website, so the root may differ from
+       page to page.
+    */
+    function setStyleSource (sourceLoc) {
+      document.getElementById("preferredStyle").href = "" + sourceLoc + ".css";
+      document.getElementById("selectPreferredStyle").value = sourceLoc;
+    }
+    /* Initialises the preferred style sheet:
+       1. if there is a stored value then use that
+          otherwise select the default
+       2. set both the css link href & the drop down menu selected option
+    */
+    function initStyleSource () {
+      var preferredStyle = localStorage.getItem("stylefile");
+      if (preferredStyle !== null) {
+        setStyleSource(preferredStyle);
+      } else {
+        setStyleSource("default");
+      };
+    }
+    function saveStyleSource (preferredStyle) {
+      localStorage.stylefile = preferredStyle;
+    }
+    </script>
+</head>
+<body class="index">
+<header>
+  <strong>Idris2Doc</strong> : prob-fx
+  <nav><a href="index.html">Index</a>
+  <select id="selectPreferredStyle">
+    <option value="default">Default</option>
+<option value="alternative">Alternative</option>
+<option value="blackandwhite">Black & White</option>
+
+  </select>
+  </nav>
+  <script>
+  /* We start by initialising the style source */
+  initStyleSource();
+  /* This listens for changes on the drop down menu and updates the
+     css used for the current page when a selection is made.
+  */
+  document.getElementById("selectPreferredStyle").addEventListener("change", function(){
+    var selected = this.options[this.selectedIndex].value; /* the option chosen */
+    setStyleSource (selected);
+    saveStyleSource (selected);
+  });
+</script>
+</header>
+<div class="container"><h1>Package prob-fx - Namespaces</h1><ul class="names"><li><a class="code" href="docs/ProbFX.Effects.Dist.html">ProbFX.Effects.Dist</a></li><li><a class="code" href="docs/ProbFX.Effects.Lift.html">ProbFX.Effects.Lift</a></li><li><a class="code" href="docs/ProbFX.Effects.ObsRW.html">ProbFX.Effects.ObsRW</a></li><li><a class="code" href="docs/ProbFX.Examples.LinRegr.html">ProbFX.Examples.LinRegr</a></li><li><a class="code" href="docs/ProbFX.Examples.HMM.html">ProbFX.Examples.HMM</a></li><li><a class="code" href="docs/ProbFX.Examples.LDA.html">ProbFX.Examples.LDA</a></li><li><a class="code" href="docs/ProbFX.Examples.SIR.html">ProbFX.Examples.SIR</a></li><li><a class="code" href="docs/ProbFX.Inference.SIM.html">ProbFX.Inference.SIM</a></li><li><a class="code" href="docs/ProbFX.Inference.LW.html">ProbFX.Inference.LW</a></li><li><a class="code" href="docs/ProbFX.Inference.MH.html">ProbFX.Inference.MH</a></li><li><a class="code" href="docs/ProbFX.Inference.MBAYES.html">ProbFX.Inference.MBAYES</a></li><li><a class="code" href="docs/ProbFX.Env.html">ProbFX.Env</a></li><li><a class="code" href="docs/ProbFX.Prog.html">ProbFX.Prog</a></li><li><a class="code" href="docs/ProbFX.Model.html">ProbFX.Model</a></li><li><a class="code" href="docs/ProbFX.PrimDist.html">ProbFX.PrimDist</a></li><li><a class="code" href="docs/ProbFX.Sampler.html">ProbFX.Sampler</a></li><li><a class="code" href="docs/ProbFX.Util.html">ProbFX.Util</a></li><li><a class="code" href="docs/Main.html">Main</a></li></ul></div><footer>Produced by Idris 2 version 0.5.1-5c4b2e81c</footer></body></html>
