@@ -143,13 +143,13 @@
 <div id="line22"><a href="#line22" class="IdrisLineNumber"> 22 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;rejectUnauthorized:&nbsp;rejectUnauthorized&nbsp;!=&nbsp;0</span></div>
 <div id="line23"><a href="#line23" class="IdrisLineNumber"> 23 | </a><span class="IdrisData">&nbsp;&nbsp;})</span></div>
 <div id="line24"><a href="#line24" class="IdrisLineNumber"> 24 | </a><span class="IdrisData">&nbsp;&nbsp;&quot;&quot;&quot;</span></div>
-<div id="line25"><a href="#line25" class="IdrisLineNumber"> 25 | </a><span class="IdrisFunction">ffi_nodeConnectOptions</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">String</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Int</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">NodeOptions</span></div>
+<div id="line25"><a href="#line25" class="IdrisLineNumber"> 25 | </a><span class="IdrisFunction">ffi_nodeConnectOptions</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">String</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Bool</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">NodeOptions</span></div>
 <div id="line26"><a href="#line26" class="IdrisLineNumber"> 26 | </a></div>
 <div id="line27"><a href="#line27" class="IdrisLineNumber"> 27 | </a><span class="IdrisKeyword">export</span></div>
 <div id="line28"><a href="#line28" class="IdrisLineNumber"> 28 | </a><span class="IdrisFunction">convertOptions</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Connect.Options</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">NodeOptions</span></div>
 <div id="line29"><a href="#line29" class="IdrisLineNumber"> 29 | </a><span class="IdrisFunction">convertOptions</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisData">MkOptions</span>&nbsp;<span class="IdrisBound">ca</span>&nbsp;<span class="IdrisBound">rejectUnauthorized</span><span class="IdrisKeyword">)</span></div>
-<div id="line30"><a href="#line30" class="IdrisLineNumber"> 30 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">ffi_nodeConnectOptions</span>&nbsp;<span class="IdrisBound">ca</span></div>
-<div id="line31"><a href="#line31" class="IdrisLineNumber"> 31 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">(if</span>&nbsp;<span class="IdrisBound">rejectUnauthorized</span>&nbsp;<span class="IdrisKeyword">then</span>&nbsp;<span class="IdrisData">1</span>&nbsp;<span class="IdrisKeyword">else</span>&nbsp;<span class="IdrisData">0</span><span class="IdrisKeyword">)</span></div>
+<div id="line30"><a href="#line30" class="IdrisLineNumber"> 30 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">ffi_nodeConnectOptions</span>&nbsp;<span class="IdrisBound">ca</span>&nbsp;<span class="IdrisBound">rejectUnauthorized</span></div>
+<div id="line31"><a href="#line31" class="IdrisLineNumber"> 31 | </a></div>
 <div id="line32"><a href="#line32" class="IdrisLineNumber"> 32 | </a></div>
 </code>
 </body>
