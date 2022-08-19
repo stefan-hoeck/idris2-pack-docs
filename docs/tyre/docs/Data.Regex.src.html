@@ -135,7 +135,7 @@
 <div id="line14"><a href="#line14" class="IdrisLineNumber"> 14 | </a></div>
 <div id="line15"><a href="#line15" class="IdrisLineNumber"> 15 | </a><span class="IdrisKeyword">export</span></div>
 <div id="line16"><a href="#line16" class="IdrisLineNumber"> 16 | </a><span class="IdrisFunction">match</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">TyRE</span>&nbsp;<span class="IdrisBound">a</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">String</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Bool</span></div>
-<div id="line17"><a href="#line17" class="IdrisLineNumber"> 17 | </a><span class="IdrisFunction">match</span>&nbsp;<span class="IdrisBound">tyre</span>&nbsp;<span class="IdrisBound">str</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">isJust</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">parse</span>&nbsp;<span class="IdrisBound">tyre</span>&nbsp;<span class="IdrisBound">str</span><span class="IdrisKeyword">)</span></div>
+<div id="line17"><a href="#line17" class="IdrisLineNumber"> 17 | </a><span class="IdrisFunction">match</span>&nbsp;<span class="IdrisBound">tyre</span>&nbsp;<span class="IdrisBound">str</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">isJust</span>&nbsp;$&nbsp;<span class="IdrisFunction">parse</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">ignore</span>&nbsp;<span class="IdrisBound">tyre</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">str</span></div>
 </code>
 </body>
 </html>
