@@ -118,20 +118,12 @@
 </head>
 <body onload="initialize()">
 <code class="IdrisCode">
-<div id="line0"><a href="#line0" class="IdrisLineNumber"> &nbsp;0 | </a><span class="IdrisKeyword">module</span>&nbsp;<span class="IdrisModule">Node.Net.Static</span></div>
-<div id="line1"><a href="#line1" class="IdrisLineNumber"> &nbsp;1 | </a></div>
-<div id="line2"><a href="#line2" class="IdrisLineNumber"> &nbsp;2 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Node</span></div>
-<div id="line3"><a href="#line3" class="IdrisLineNumber"> &nbsp;3 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Node.Net.Module</span></div>
-<div id="line4"><a href="#line4" class="IdrisLineNumber"> &nbsp;4 | </a><span class="IdrisKeyword">import</span>&nbsp;<span class="IdrisModule">Node.Net.Socket</span></div>
-<div id="line5"><a href="#line5" class="IdrisLineNumber"> &nbsp;5 | </a></div>
-<div id="line6"><a href="#line6" class="IdrisLineNumber"> &nbsp;6 | </a><span class="IdrisKeyword">%foreign</span>&nbsp;<span class="IdrisData">&quot;node:lambda:&nbsp;(ty,&nbsp;net,&nbsp;opts)&nbsp;=&gt;&nbsp;new&nbsp;net.Socket(opts)&quot;</span></div>
-<div id="line7"><a href="#line7" class="IdrisLineNumber"> &nbsp;7 | </a><span class="IdrisFunction">ffi_newSocket</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">NetModule</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Node</span>&nbsp;<span class="IdrisType">Socket.Options</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisFunction">PrimIO</span>&nbsp;$&nbsp;<span class="IdrisType">Socket</span>&nbsp;<span class="IdrisBound">t</span></div>
-<div id="line8"><a href="#line8" class="IdrisLineNumber"> &nbsp;8 | </a></div>
-<div id="line9"><a href="#line9" class="IdrisLineNumber"> &nbsp;9 | </a><span class="IdrisKeyword">export</span></div>
-<div id="line10"><a href="#line10" class="IdrisLineNumber"> 10 | </a><span class="IdrisFunction">(.newSocket)</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">HasIO</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisType">NetModule</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Socket.Options</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisBound">io</span>&nbsp;$&nbsp;<span class="IdrisType">Socket</span>&nbsp;<span class="IdrisBound">t</span></div>
-<div id="line11"><a href="#line11" class="IdrisLineNumber"> 11 | </a><span class="IdrisFunction">(.newSocket)</span>&nbsp;<span class="IdrisBound">net</span>&nbsp;<span class="IdrisBound">opts</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisFunction">primIO</span>&nbsp;$&nbsp;<span class="IdrisFunction">ffi_newSocket</span>&nbsp;<span class="IdrisBound">net</span>&nbsp;$&nbsp;<span class="IdrisFunction">convertOptions</span>&nbsp;<span class="IdrisBound">opts</span></div>
-<div id="line12"><a href="#line12" class="IdrisLineNumber"> 12 | </a></div>
-<div id="line13"><a href="#line13" class="IdrisLineNumber"> 13 | </a></div>
+<div id="line0"><a href="#line0" class="IdrisLineNumber"> 0 | </a><span class="IdrisKeyword">module</span>&nbsp;<span class="IdrisModule">Node.HTTPS.Module</span></div>
+<div id="line1"><a href="#line1" class="IdrisLineNumber"> 1 | </a></div>
+<div id="line2"><a href="#line2" class="IdrisLineNumber"> 2 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line3"><a href="#line3" class="IdrisLineNumber"> 3 | </a><span class="IdrisKeyword">data</span>&nbsp;<span class="IdrisType">HTTPSModule</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Type</span>&nbsp;<span class="IdrisKeyword">where</span>&nbsp;<span class="IdrisKeyword">[</span>external<span class="IdrisKeyword">]</span></div>
+<div id="line4"><a href="#line4" class="IdrisLineNumber"> 4 | </a></div>
+<div id="line5"><a href="#line5" class="IdrisLineNumber"> 5 | </a></div>
 </code>
 </body>
 </html>
