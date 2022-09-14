@@ -249,7 +249,7 @@
 <div id="line128"><a href="#line128" class="IdrisLineNumber"> 128 | </a><span class="IdrisComment">|||&nbsp;and&nbsp;cached&nbsp;`.ipkg`&nbsp;files&nbsp;are&nbsp;stored.</span></div>
 <div id="line129"><a href="#line129" class="IdrisLineNumber"> 129 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
 <div id="line130"><a href="#line130" class="IdrisLineNumber"> 130 | </a><span class="IdrisKeyword">data</span>&nbsp;<span class="IdrisType">PackDir</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Type</span>&nbsp;<span class="IdrisKeyword">where</span></div>
-<div id="line131"><a href="#line131" class="IdrisLineNumber"> 131 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">[</span>noHints<span class="IdrisKeyword">]</span></div>
+<div id="line131"><a href="#line131" class="IdrisLineNumber"> 131 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">[noHints]</span></div>
 <div id="line132"><a href="#line132" class="IdrisLineNumber"> 132 | </a>&nbsp;&nbsp;<span class="IdrisData">PD</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">dir</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Path</span>&nbsp;<span class="IdrisData">Abs</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">PackDir</span></div>
 <div id="line133"><a href="#line133" class="IdrisLineNumber"> 133 | </a></div>
 <div id="line134"><a href="#line134" class="IdrisLineNumber"> 134 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
@@ -265,7 +265,7 @@
 <div id="line144"><a href="#line144" class="IdrisLineNumber"> 144 | </a><span class="IdrisComment">|||&nbsp;The&nbsp;directory&nbsp;from&nbsp;which&nbsp;the&nbsp;pack&nbsp;application&nbsp;was&nbsp;invoked.</span></div>
 <div id="line145"><a href="#line145" class="IdrisLineNumber"> 145 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
 <div id="line146"><a href="#line146" class="IdrisLineNumber"> 146 | </a><span class="IdrisKeyword">data</span>&nbsp;<span class="IdrisType">CurDir</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Type</span>&nbsp;<span class="IdrisKeyword">where</span></div>
-<div id="line147"><a href="#line147" class="IdrisLineNumber"> 147 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">[</span>noHints<span class="IdrisKeyword">]</span></div>
+<div id="line147"><a href="#line147" class="IdrisLineNumber"> 147 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">[noHints]</span></div>
 <div id="line148"><a href="#line148" class="IdrisLineNumber"> 148 | </a>&nbsp;&nbsp;<span class="IdrisData">CD</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">dir</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Path</span>&nbsp;<span class="IdrisData">Abs</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">CurDir</span></div>
 <div id="line149"><a href="#line149" class="IdrisLineNumber"> 149 | </a></div>
 <div id="line150"><a href="#line150" class="IdrisLineNumber"> 150 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
@@ -282,7 +282,7 @@
 <div id="line161"><a href="#line161" class="IdrisLineNumber"> 161 | </a><span class="IdrisComment">|||&nbsp;kept.</span></div>
 <div id="line162"><a href="#line162" class="IdrisLineNumber"> 162 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
 <div id="line163"><a href="#line163" class="IdrisLineNumber"> 163 | </a><span class="IdrisKeyword">data</span>&nbsp;<span class="IdrisType">TmpDir</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Type</span>&nbsp;<span class="IdrisKeyword">where</span></div>
-<div id="line164"><a href="#line164" class="IdrisLineNumber"> 164 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">[</span>noHints<span class="IdrisKeyword">]</span></div>
+<div id="line164"><a href="#line164" class="IdrisLineNumber"> 164 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">[noHints]</span></div>
 <div id="line165"><a href="#line165" class="IdrisLineNumber"> 165 | </a>&nbsp;&nbsp;<span class="IdrisData">TD</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">dir</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Path</span>&nbsp;<span class="IdrisData">Abs</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">TmpDir</span></div>
 <div id="line166"><a href="#line166" class="IdrisLineNumber"> 166 | </a></div>
 <div id="line167"><a href="#line167" class="IdrisLineNumber"> 167 | </a><span class="IdrisKeyword">export</span>&nbsp;<span class="IdrisKeyword">%inline</span></div>
@@ -826,7 +826,7 @@
 <div id="line705"><a href="#line705" class="IdrisLineNumber"> 705 | </a><span class="IdrisComment">|||&nbsp;Level&nbsp;used&nbsp;during&nbsp;logging.</span></div>
 <div id="line706"><a href="#line706" class="IdrisLineNumber"> 706 | </a><span class="IdrisKeyword">public</span>&nbsp;<span class="IdrisKeyword">export</span></div>
 <div id="line707"><a href="#line707" class="IdrisLineNumber"> 707 | </a><span class="IdrisKeyword">data</span>&nbsp;<span class="IdrisType">LogLevel</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">Type</span>&nbsp;<span class="IdrisKeyword">where</span></div>
-<div id="line708"><a href="#line708" class="IdrisLineNumber"> 708 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">[</span>noHints<span class="IdrisKeyword">]</span></div>
+<div id="line708"><a href="#line708" class="IdrisLineNumber"> 708 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">[noHints]</span></div>
 <div id="line709"><a href="#line709" class="IdrisLineNumber"> 709 | </a>&nbsp;&nbsp;<span class="IdrisData">Debug</span>&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">LogLevel</span></div>
 <div id="line710"><a href="#line710" class="IdrisLineNumber"> 710 | </a>&nbsp;&nbsp;<span class="IdrisData">Info</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">LogLevel</span></div>
 <div id="line711"><a href="#line711" class="IdrisLineNumber"> 711 | </a>&nbsp;&nbsp;<span class="IdrisData">Warning</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">LogLevel</span></div>
