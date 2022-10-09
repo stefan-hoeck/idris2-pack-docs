@@ -300,12 +300,12 @@
 <div id="line179"><a href="#line179" class="IdrisLineNumber"> 179 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">curDir</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">CurDir</span><span class="IdrisKeyword">)</span></div>
 <div id="line180"><a href="#line180" class="IdrisLineNumber"> 180 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">init</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisFunction">MetaConfig</span><span class="IdrisKeyword">)</span></div>
 <div id="line181"><a href="#line181" class="IdrisLineNumber"> 181 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">args</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">List</span>&nbsp;<span class="IdrisType">String</span><span class="IdrisKeyword">)</span></div>
-<div id="line182"><a href="#line182" class="IdrisLineNumber"> 182 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Either</span>&nbsp;<span class="IdrisType">PackErr</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">MetaConfig</span><span class="IdrisType">,</span>&nbsp;<span class="IdrisBound">c</span><span class="IdrisKeyword">)</span></div>
+<div id="line182"><a href="#line182" class="IdrisLineNumber"> 182 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">-&gt;</span>&nbsp;<span class="IdrisType">Either</span>&nbsp;<span class="IdrisType">PackErr</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">MetaConfig</span><span class="IdrisType">,</span>&nbsp;<span class="IdrisFunction">CommandWithArgs</span>&nbsp;<span class="IdrisBound">c</span><span class="IdrisKeyword">)</span></div>
 <div id="line183"><a href="#line183" class="IdrisLineNumber"> 183 | </a><span class="IdrisFunction">applyArgs</span>&nbsp;<span class="IdrisBound">c</span>&nbsp;<span class="IdrisBound">dir</span>&nbsp;<span class="IdrisBound">init</span>&nbsp;<span class="IdrisBound">args</span>&nbsp;<span class="IdrisKeyword">=</span></div>
 <div id="line184"><a href="#line184" class="IdrisLineNumber"> 184 | </a>&nbsp;&nbsp;<span class="IdrisKeyword">case</span>&nbsp;<span class="IdrisFunction">getOpt</span>&nbsp;<span class="IdrisData">RequireOrder</span>&nbsp;<span class="IdrisFunction">descs</span>&nbsp;<span class="IdrisBound">args</span>&nbsp;<span class="IdrisKeyword">of</span></div>
 <div id="line185"><a href="#line185" class="IdrisLineNumber"> 185 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisData">MkResult</span>&nbsp;<span class="IdrisBound">opts</span>&nbsp;<span class="IdrisBound">n</span>&nbsp;&nbsp;<span class="IdrisData">[]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisData">[]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisKeyword">do</span></div>
 <div id="line186"><a href="#line186" class="IdrisLineNumber"> 186 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisBound">cmd</span>&nbsp;&nbsp;<span class="IdrisKeyword">&lt;-</span>&nbsp;<span class="IdrisFunction">readCommand</span>&nbsp;<span class="IdrisBound">c</span>&nbsp;<span class="IdrisBound">dir</span>&nbsp;<span class="IdrisBound">n</span></div>
-<div id="line187"><a href="#line187" class="IdrisLineNumber"> 187 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">let</span>&nbsp;<span class="IdrisBound">init&apos;</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">{</span><span class="IdrisFunction">logLevel</span>&nbsp;<span class="IdrisKeyword">:=</span>&nbsp;<span class="IdrisFunction">defaultLevel</span>&nbsp;<span class="IdrisBound">cmd</span><span class="IdrisKeyword">}</span>&nbsp;<span class="IdrisBound">init</span></div>
+<div id="line187"><a href="#line187" class="IdrisLineNumber"> 187 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisKeyword">let</span>&nbsp;<span class="IdrisBound">init&apos;</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisKeyword">{</span><span class="IdrisFunction">logLevel</span>&nbsp;<span class="IdrisKeyword">:=</span>&nbsp;<span class="IdrisFunction">defaultLevel</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisFunction">fst</span>&nbsp;<span class="IdrisBound">cmd</span><span class="IdrisKeyword">)}</span>&nbsp;<span class="IdrisBound">init</span></div>
 <div id="line188"><a href="#line188" class="IdrisLineNumber"> 188 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisBound">conf</span>&nbsp;<span class="IdrisKeyword">&lt;-</span>&nbsp;<span class="IdrisFunction">foldlM</span>&nbsp;<span class="IdrisKeyword">(\</span><span class="IdrisBound">c</span><span class="IdrisKeyword">,</span><span class="IdrisBound">f</span>&nbsp;<span class="IdrisKeyword">=&gt;</span>&nbsp;<span class="IdrisBound">f</span>&nbsp;<span class="IdrisBound">dir</span>&nbsp;<span class="IdrisBound">c</span><span class="IdrisKeyword">)</span>&nbsp;<span class="IdrisBound">init&apos;</span>&nbsp;<span class="IdrisBound">opts</span></div>
 <div id="line189"><a href="#line189" class="IdrisLineNumber"> 189 | </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="IdrisData">Right</span>&nbsp;<span class="IdrisKeyword">(</span><span class="IdrisBound">conf</span><span class="IdrisData">,</span>&nbsp;<span class="IdrisBound">cmd</span><span class="IdrisKeyword">)</span></div>
 <div id="line190"><a href="#line190" class="IdrisLineNumber"> 190 | </a></div>
@@ -316,156 +316,19 @@
 <div id="line195"><a href="#line195" class="IdrisLineNumber"> 195 | </a><span class="IdrisComment">--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Usage&nbsp;Info</span></div>
 <div id="line196"><a href="#line196" class="IdrisLineNumber"> 196 | </a><span class="IdrisComment">--------------------------------------------------------------------------------</span></div>
 <div id="line197"><a href="#line197" class="IdrisLineNumber"> 197 | </a></div>
-<div id="line198"><a href="#line198" class="IdrisLineNumber"> 198 | </a><span class="IdrisFunction">progName</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">String</span></div>
-<div id="line199"><a href="#line199" class="IdrisLineNumber"> 199 | </a><span class="IdrisFunction">progName</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">&quot;pack&quot;</span></div>
-<div id="line200"><a href="#line200" class="IdrisLineNumber"> 200 | </a></div>
-<div id="line201"><a href="#line201" class="IdrisLineNumber"> 201 | </a><span class="IdrisComment">|||&nbsp;Application&nbsp;info&nbsp;printed&nbsp;with&nbsp;the&nbsp;`help`&nbsp;action.</span></div>
-<div id="line202"><a href="#line202" class="IdrisLineNumber"> 202 | </a><span class="IdrisKeyword">export</span></div>
-<div id="line203"><a href="#line203" class="IdrisLineNumber"> 203 | </a><span class="IdrisFunction">usageInfo</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">String</span></div>
-<div id="line204"><a href="#line204" class="IdrisLineNumber"> 204 | </a><span class="IdrisFunction">usageInfo</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">&quot;&quot;&quot;</span></div>
-<div id="line205"><a href="#line205" class="IdrisLineNumber"> 205 | </a><span class="IdrisData">&nbsp;&nbsp;Usage:&nbsp;\{</span><span class="IdrisFunction">progName</span><span class="IdrisData">}&nbsp;[options]&nbsp;COMMAND&nbsp;[args]</span></div>
+<div id="line198"><a href="#line198" class="IdrisLineNumber"> 198 | </a><span class="IdrisComment">|||&nbsp;Application&nbsp;info&nbsp;printed&nbsp;with&nbsp;the&nbsp;`help`&nbsp;action.</span></div>
+<div id="line199"><a href="#line199" class="IdrisLineNumber"> 199 | </a><span class="IdrisKeyword">export</span></div>
+<div id="line200"><a href="#line200" class="IdrisLineNumber"> 200 | </a><span class="IdrisFunction">usageInfo</span>&nbsp;<span class="IdrisKeyword">:</span>&nbsp;<span class="IdrisType">String</span></div>
+<div id="line201"><a href="#line201" class="IdrisLineNumber"> 201 | </a><span class="IdrisFunction">usageInfo</span>&nbsp;<span class="IdrisKeyword">=</span>&nbsp;<span class="IdrisData">&quot;&quot;&quot;</span></div>
+<div id="line202"><a href="#line202" class="IdrisLineNumber"> 202 | </a><span class="IdrisData">&nbsp;&nbsp;Options:</span></div>
+<div id="line203"><a href="#line203" class="IdrisLineNumber"> 203 | </a><span class="IdrisData">&nbsp;&nbsp;\{</span><span class="IdrisFunction">usageInfo</span><span class="IdrisData">&nbsp;&quot;&quot;&nbsp;</span><span class="IdrisFunction">descs</span><span class="IdrisData">}</span></div>
+<div id="line204"><a href="#line204" class="IdrisLineNumber"> 204 | </a></div>
+<div id="line205"><a href="#line205" class="IdrisLineNumber"> 205 | </a><span class="IdrisData">&nbsp;&nbsp;Run&nbsp;`pack&nbsp;help&nbsp;&lt;cmd&gt;`&nbsp;to&nbsp;get&nbsp;detailed&nbsp;information&nbsp;about&nbsp;a&nbsp;command.</span></div>
 <div id="line206"><a href="#line206" class="IdrisLineNumber"> 206 | </a></div>
-<div id="line207"><a href="#line207" class="IdrisLineNumber"> 207 | </a><span class="IdrisData">&nbsp;&nbsp;Options:</span></div>
-<div id="line208"><a href="#line208" class="IdrisLineNumber"> 208 | </a><span class="IdrisData">&nbsp;&nbsp;\{</span><span class="IdrisFunction">usageInfo</span><span class="IdrisData">&nbsp;&quot;&quot;&nbsp;</span><span class="IdrisFunction">descs</span><span class="IdrisData">}</span></div>
-<div id="line209"><a href="#line209" class="IdrisLineNumber"> 209 | </a></div>
-<div id="line210"><a href="#line210" class="IdrisLineNumber"> 210 | </a><span class="IdrisData">&nbsp;&nbsp;Commands:</span></div>
-<div id="line211"><a href="#line211" class="IdrisLineNumber"> 211 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;help</span></div>
-<div id="line212"><a href="#line212" class="IdrisLineNumber"> 212 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Print&nbsp;this&nbsp;help&nbsp;text.</span></div>
-<div id="line213"><a href="#line213" class="IdrisLineNumber"> 213 | </a></div>
-<div id="line214"><a href="#line214" class="IdrisLineNumber"> 214 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;&lt;lib&nbsp;|&nbsp;bin&gt;&nbsp;&lt;package&nbsp;name&gt;</span></div>
-<div id="line215"><a href="#line215" class="IdrisLineNumber"> 215 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create&nbsp;a&nbsp;new&nbsp;package&nbsp;in&nbsp;the&nbsp;current&nbsp;directory</span></div>
-<div id="line216"><a href="#line216" class="IdrisLineNumber"> 216 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;consisting&nbsp;of&nbsp;a&nbsp;source&nbsp;directory,&nbsp;default&nbsp;module&nbsp;and&nbsp;a&nbsp;.ipkg&nbsp;file.</span></div>
-<div id="line217"><a href="#line217" class="IdrisLineNumber"> 217 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;git&nbsp;repository&nbsp;will&nbsp;be&nbsp;initialized.</span></div>
-<div id="line218"><a href="#line218" class="IdrisLineNumber"> 218 | </a></div>
-<div id="line219"><a href="#line219" class="IdrisLineNumber"> 219 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;build&nbsp;&lt;.ipkg&nbsp;file&nbsp;or&nbsp;local&nbsp;pkg&nbsp;name&gt;</span></div>
-<div id="line220"><a href="#line220" class="IdrisLineNumber"> 220 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Build&nbsp;a&nbsp;local&nbsp;package&nbsp;given&nbsp;as&nbsp;an&nbsp;`.ipkg`&nbsp;file&nbsp;or&nbsp;package&nbsp;name.</span></div>
-<div id="line221"><a href="#line221" class="IdrisLineNumber"> 221 | </a></div>
-<div id="line222"><a href="#line222" class="IdrisLineNumber"> 222 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;exec&nbsp;&lt;.idr&nbsp;file&gt;&nbsp;[args...]</span></div>
-<div id="line223"><a href="#line223" class="IdrisLineNumber"> 223 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compile&nbsp;the&nbsp;given&nbsp;Idris&nbsp;source&nbsp;file&nbsp;and&nbsp;execute&nbsp;its&nbsp;main&nbsp;function</span></div>
-<div id="line224"><a href="#line224" class="IdrisLineNumber"> 224 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;the&nbsp;given&nbsp;list&nbsp;of&nbsp;arguments.&nbsp;This&nbsp;will&nbsp;look&nbsp;for&nbsp;`.ipkg`&nbsp;files</span></div>
-<div id="line225"><a href="#line225" class="IdrisLineNumber"> 225 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;the&nbsp;source&nbsp;file&apos;s&nbsp;parent&nbsp;directories&nbsp;and&nbsp;will&nbsp;apply&nbsp;the&nbsp;settings</span></div>
-<div id="line226"><a href="#line226" class="IdrisLineNumber"> 226 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;finds&nbsp;there.</span></div>
-<div id="line227"><a href="#line227" class="IdrisLineNumber"> 227 | </a></div>
-<div id="line228"><a href="#line228" class="IdrisLineNumber"> 228 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;install-deps&nbsp;&lt;.ipkg&nbsp;file&nbsp;or&nbsp;local&nbsp;pkg&nbsp;name&gt;</span></div>
-<div id="line229"><a href="#line229" class="IdrisLineNumber"> 229 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Install&nbsp;the&nbsp;dependencies&nbsp;of&nbsp;a&nbsp;local&nbsp;package&nbsp;given&nbsp;as&nbsp;an&nbsp;`.ipkg`&nbsp;file</span></div>
-<div id="line230"><a href="#line230" class="IdrisLineNumber"> 230 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;package&nbsp;name.</span></div>
-<div id="line231"><a href="#line231" class="IdrisLineNumber"> 231 | </a></div>
-<div id="line232"><a href="#line232" class="IdrisLineNumber"> 232 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;typecheck&nbsp;&lt;.ipkg&nbsp;file&nbsp;or&nbsp;local&nbsp;pkg&nbsp;name&gt;</span></div>
-<div id="line233"><a href="#line233" class="IdrisLineNumber"> 233 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Typecheck&nbsp;a&nbsp;local&nbsp;package&nbsp;given&nbsp;as&nbsp;an&nbsp;`.ipkg`&nbsp;file&nbsp;or&nbsp;package&nbsp;name.</span></div>
-<div id="line234"><a href="#line234" class="IdrisLineNumber"> 234 | </a></div>
-<div id="line235"><a href="#line235" class="IdrisLineNumber"> 235 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;clean&nbsp;&lt;.ipkg&nbsp;file&nbsp;or&nbsp;local&nbsp;pkg&nbsp;name&gt;</span></div>
-<div id="line236"><a href="#line236" class="IdrisLineNumber"> 236 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clean&nbsp;up&nbsp;a&nbsp;local&nbsp;package&nbsp;by&nbsp;invoking&nbsp;`idris2&nbsp;--clean`&nbsp;on&nbsp;its</span></div>
-<div id="line237"><a href="#line237" class="IdrisLineNumber"> 237 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`.ipkg`&nbsp;file</span></div>
-<div id="line238"><a href="#line238" class="IdrisLineNumber"> 238 | </a></div>
-<div id="line239"><a href="#line239" class="IdrisLineNumber"> 239 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;repl&nbsp;[.idr&nbsp;file]</span></div>
-<div id="line240"><a href="#line240" class="IdrisLineNumber"> 240 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start&nbsp;a&nbsp;REPL&nbsp;session&nbsp;loading&nbsp;an&nbsp;optional&nbsp;`.idr`&nbsp;file.</span></div>
-<div id="line241"><a href="#line241" class="IdrisLineNumber"> 241 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use&nbsp;command&nbsp;line&nbsp;option&nbsp;`--with-ipkg`&nbsp;to&nbsp;load&nbsp;settings</span></div>
-<div id="line242"><a href="#line242" class="IdrisLineNumber"> 242 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;packages&nbsp;from&nbsp;an&nbsp;`.ipkg`&nbsp;file.&nbsp;Option&nbsp;`--no-ipkg`&nbsp;can&nbsp;be&nbsp;used</span></div>
-<div id="line243"><a href="#line243" class="IdrisLineNumber"> 243 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;not&nbsp;go&nbsp;looking&nbsp;for&nbsp;an&nbsp;`.ipkg`&nbsp;file.&nbsp;The&nbsp;default&nbsp;behavior</span></div>
-<div id="line244"><a href="#line244" class="IdrisLineNumber"> 244 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;for&nbsp;pack&nbsp;to&nbsp;use&nbsp;the&nbsp;first&nbsp;`.ipkg`&nbsp;file&nbsp;it&nbsp;can&nbsp;find&nbsp;in&nbsp;the</span></div>
-<div id="line245"><a href="#line245" class="IdrisLineNumber"> 245 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current&nbsp;directory&nbsp;or&nbsp;one&nbsp;of&nbsp;its&nbsp;prent&nbsp;directories.</span></div>
-<div id="line246"><a href="#line246" class="IdrisLineNumber"> 246 | </a></div>
-<div id="line247"><a href="#line247" class="IdrisLineNumber"> 247 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In&nbsp;order&nbsp;to&nbsp;start&nbsp;the&nbsp;REPL&nbsp;session&nbsp;with&nbsp;`rlwrap`,&nbsp;use&nbsp;the&nbsp;`--rlwrap`</span></div>
-<div id="line248"><a href="#line248" class="IdrisLineNumber"> 248 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;option&nbsp;or&nbsp;set&nbsp;flag&nbsp;`repl.rlwrap`&nbsp;in&nbsp;file</span></div>
-<div id="line249"><a href="#line249" class="IdrisLineNumber"> 249 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`$HOME/.pack/user/pack.toml`&nbsp;to&nbsp;`true`.</span></div>
-<div id="line250"><a href="#line250" class="IdrisLineNumber"> 250 | </a></div>
-<div id="line251"><a href="#line251" class="IdrisLineNumber"> 251 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;install&nbsp;[package...]</span></div>
-<div id="line252"><a href="#line252" class="IdrisLineNumber"> 252 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Install&nbsp;the&nbsp;given&nbsp;packages.</span></div>
-<div id="line253"><a href="#line253" class="IdrisLineNumber"> 253 | </a></div>
-<div id="line254"><a href="#line254" class="IdrisLineNumber"> 254 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;install-app&nbsp;[package...]</span></div>
-<div id="line255"><a href="#line255" class="IdrisLineNumber"> 255 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Install&nbsp;the&nbsp;given&nbsp;applications.</span></div>
-<div id="line256"><a href="#line256" class="IdrisLineNumber"> 256 | </a></div>
-<div id="line257"><a href="#line257" class="IdrisLineNumber"> 257 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;run&nbsp;&lt;package&nbsp;or&nbsp;.ipkg&nbsp;file&gt;&nbsp;[args]</span></div>
-<div id="line258"><a href="#line258" class="IdrisLineNumber"> 258 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run&nbsp;an&nbsp;application&nbsp;from&nbsp;the&nbsp;package</span></div>
-<div id="line259"><a href="#line259" class="IdrisLineNumber"> 259 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;collection&nbsp;or&nbsp;a&nbsp;local&nbsp;`.ipkg`&nbsp;file&nbsp;passing&nbsp;it&nbsp;the</span></div>
-<div id="line260"><a href="#line260" class="IdrisLineNumber"> 260 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;command&nbsp;line&nbsp;arguments.</span></div>
-<div id="line261"><a href="#line261" class="IdrisLineNumber"> 261 | </a></div>
-<div id="line262"><a href="#line262" class="IdrisLineNumber"> 262 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note:&nbsp;This&nbsp;will&nbsp;install&nbsp;remote&nbsp;apps&nbsp;before&nbsp;running&nbsp;them.</span></div>
-<div id="line263"><a href="#line263" class="IdrisLineNumber"> 263 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Local&nbsp;apps&nbsp;and&nbsp;applications&nbsp;specified&nbsp;as&nbsp;mere&nbsp;`.ipkg`&nbsp;files</span></div>
-<div id="line264"><a href="#line264" class="IdrisLineNumber"> 264 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;built&nbsp;and&nbsp;run&nbsp;locally&nbsp;without&nbsp;installing&nbsp;them.</span></div>
-<div id="line265"><a href="#line265" class="IdrisLineNumber"> 265 | </a></div>
-<div id="line266"><a href="#line266" class="IdrisLineNumber"> 266 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;remove&nbsp;[package...]</span></div>
-<div id="line267"><a href="#line267" class="IdrisLineNumber"> 267 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remove&nbsp;installed&nbsp;libraries.</span></div>
-<div id="line268"><a href="#line268" class="IdrisLineNumber"> 268 | </a></div>
-<div id="line269"><a href="#line269" class="IdrisLineNumber"> 269 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;remove-app&nbsp;[package...]</span></div>
-<div id="line270"><a href="#line270" class="IdrisLineNumber"> 270 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remove&nbsp;installed&nbsp;applications.</span></div>
-<div id="line271"><a href="#line271" class="IdrisLineNumber"> 271 | </a></div>
-<div id="line272"><a href="#line272" class="IdrisLineNumber"> 272 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;update-db</span></div>
-<div id="line273"><a href="#line273" class="IdrisLineNumber"> 273 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update&nbsp;the&nbsp;pack&nbsp;data&nbsp;base&nbsp;by&nbsp;downloading&nbsp;the&nbsp;package&nbsp;collections</span></div>
-<div id="line274"><a href="#line274" class="IdrisLineNumber"> 274 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;https://github.com/stefan-hoeck/idris2-pack-db.</span></div>
-<div id="line275"><a href="#line275" class="IdrisLineNumber"> 275 | </a></div>
-<div id="line276"><a href="#line276" class="IdrisLineNumber"> 276 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;update</span></div>
-<div id="line277"><a href="#line277" class="IdrisLineNumber"> 277 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update&nbsp;the&nbsp;pack&nbsp;installation&nbsp;by&nbsp;downloading&nbsp;and&nbsp;building</span></div>
-<div id="line278"><a href="#line278" class="IdrisLineNumber"> 278 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;current&nbsp;main&nbsp;branch&nbsp;of</span></div>
-<div id="line279"><a href="#line279" class="IdrisLineNumber"> 279 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://github.com/stefan-hoeck/idris2-pack.</span></div>
-<div id="line280"><a href="#line280" class="IdrisLineNumber"> 280 | </a></div>
-<div id="line281"><a href="#line281" class="IdrisLineNumber"> 281 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note:&nbsp;This&nbsp;uses&nbsp;the&nbsp;current&nbsp;package&nbsp;collection,&nbsp;which&nbsp;might&nbsp;be</span></div>
-<div id="line282"><a href="#line282" class="IdrisLineNumber"> 282 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;too&nbsp;outdated&nbsp;to&nbsp;build&nbsp;the&nbsp;latest&nbsp;pack.&nbsp;If&nbsp;this&nbsp;fails,&nbsp;try&nbsp;using</span></div>
-<div id="line283"><a href="#line283" class="IdrisLineNumber"> 283 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;latest&nbsp;nightly.</span></div>
-<div id="line284"><a href="#line284" class="IdrisLineNumber"> 284 | </a></div>
-<div id="line285"><a href="#line285" class="IdrisLineNumber"> 285 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;fetch</span></div>
-<div id="line286"><a href="#line286" class="IdrisLineNumber"> 286 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fetch&nbsp;latest&nbsp;commit&nbsp;hashes&nbsp;from&nbsp;GitHub&nbsp;for&nbsp;packages&nbsp;with&nbsp;a</span></div>
-<div id="line287"><a href="#line287" class="IdrisLineNumber"> 287 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;commit&nbsp;entry&nbsp;of&nbsp;&quot;latest:branch&quot;.</span></div>
-<div id="line288"><a href="#line288" class="IdrisLineNumber"> 288 | </a></div>
-<div id="line289"><a href="#line289" class="IdrisLineNumber"> 289 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;switch&nbsp;[collection&nbsp;name]</span></div>
-<div id="line290"><a href="#line290" class="IdrisLineNumber"> 290 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Switch&nbsp;to&nbsp;the&nbsp;given&nbsp;package&nbsp;collection.&nbsp;This&nbsp;will&nbsp;adjust&nbsp;your</span></div>
-<div id="line291"><a href="#line291" class="IdrisLineNumber"> 291 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`$HOME/.pack/user/pack.toml`&nbsp;file&nbsp;to&nbsp;use&nbsp;the&nbsp;given&nbsp;package</span></div>
-<div id="line292"><a href="#line292" class="IdrisLineNumber"> 292 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;collection.&nbsp;It&nbsp;will&nbsp;also&nbsp;install&nbsp;all&nbsp;auto&nbsp;libs&nbsp;and&nbsp;apps&nbsp;for&nbsp;the</span></div>
-<div id="line293"><a href="#line293" class="IdrisLineNumber"> 293 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;package&nbsp;collection.</span></div>
-<div id="line294"><a href="#line294" class="IdrisLineNumber"> 294 | </a></div>
-<div id="line295"><a href="#line295" class="IdrisLineNumber"> 295 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note:&nbsp;It&nbsp;is&nbsp;also&nbsp;possible&nbsp;to&nbsp;switch&nbsp;to&nbsp;the&nbsp;latest&nbsp;package</span></div>
-<div id="line296"><a href="#line296" class="IdrisLineNumber"> 296 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;collection&nbsp;by&nbsp;using&nbsp;&quot;latest&quot;&nbsp;as&nbsp;the&nbsp;collection&nbsp;name.</span></div>
-<div id="line297"><a href="#line297" class="IdrisLineNumber"> 297 | </a></div>
-<div id="line298"><a href="#line298" class="IdrisLineNumber"> 298 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;info</span></div>
-<div id="line299"><a href="#line299" class="IdrisLineNumber"> 299 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Print&nbsp;general&nbsp;information&nbsp;about&nbsp;the&nbsp;current&nbsp;package</span></div>
-<div id="line300"><a href="#line300" class="IdrisLineNumber"> 300 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;collection&nbsp;and&nbsp;list&nbsp;installed&nbsp;applications&nbsp;and&nbsp;libraries.</span></div>
-<div id="line301"><a href="#line301" class="IdrisLineNumber"> 301 | </a></div>
-<div id="line302"><a href="#line302" class="IdrisLineNumber"> 302 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;query&nbsp;[mode]&nbsp;&lt;substring&gt;</span></div>
-<div id="line303"><a href="#line303" class="IdrisLineNumber"> 303 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Query&nbsp;the&nbsp;package&nbsp;collection&nbsp;for&nbsp;the&nbsp;given&nbsp;name.</span></div>
-<div id="line304"><a href="#line304" class="IdrisLineNumber"> 304 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Several&nbsp;command&nbsp;line&nbsp;options&nbsp;exist&nbsp;to&nbsp;define&nbsp;the&nbsp;type</span></div>
-<div id="line305"><a href="#line305" class="IdrisLineNumber"> 305 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;information&nbsp;printed.&nbsp;The&nbsp;optional&nbsp;[mode]&nbsp;argument</span></div>
-<div id="line306"><a href="#line306" class="IdrisLineNumber"> 306 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defines&nbsp;the&nbsp;type&nbsp;of&nbsp;query&nbsp;to&nbsp;use:</span></div>
-<div id="line307"><a href="#line307" class="IdrisLineNumber"> 307 | </a></div>
-<div id="line308"><a href="#line308" class="IdrisLineNumber"> 308 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;`dep`&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Search&nbsp;a&nbsp;package&nbsp;by&nbsp;its&nbsp;dependencies.&nbsp;For</span></div>
-<div id="line309"><a href="#line309" class="IdrisLineNumber"> 309 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;`pack&nbsp;query&nbsp;dep&nbsp;sop`&nbsp;will&nbsp;list&nbsp;all&nbsp;packages,</span></div>
-<div id="line310"><a href="#line310" class="IdrisLineNumber"> 310 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which&nbsp;have&nbsp;a&nbsp;dependency&nbsp;on&nbsp;the&nbsp;sop&nbsp;library.&nbsp;Only&nbsp;exact</span></div>
-<div id="line311"><a href="#line311" class="IdrisLineNumber"> 311 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;matches&nbsp;will&nbsp;be&nbsp;listed.</span></div>
-<div id="line312"><a href="#line312" class="IdrisLineNumber"> 312 | </a></div>
-<div id="line313"><a href="#line313" class="IdrisLineNumber"> 313 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;`module`&nbsp;:&nbsp;Search&nbsp;a&nbsp;package&nbsp;by&nbsp;its&nbsp;modules.&nbsp;For</span></div>
-<div id="line314"><a href="#line314" class="IdrisLineNumber"> 314 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;`pack&nbsp;query&nbsp;module&nbsp;Data.List`&nbsp;will&nbsp;list&nbsp;all&nbsp;packages,</span></div>
-<div id="line315"><a href="#line315" class="IdrisLineNumber"> 315 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which&nbsp;export&nbsp;module&nbsp;`Data.List`.&nbsp;Only&nbsp;exact&nbsp;matches&nbsp;will</span></div>
-<div id="line316"><a href="#line316" class="IdrisLineNumber"> 316 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;listed.</span></div>
-<div id="line317"><a href="#line317" class="IdrisLineNumber"> 317 | </a></div>
-<div id="line318"><a href="#line318" class="IdrisLineNumber"> 318 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;none&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;List&nbsp;packages&nbsp;whose&nbsp;names&nbsp;have&nbsp;the&nbsp;query</span></div>
-<div id="line319"><a href="#line319" class="IdrisLineNumber"> 319 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;as&nbsp;a&nbsp;substring.</span></div>
-<div id="line320"><a href="#line320" class="IdrisLineNumber"> 320 | </a></div>
-<div id="line321"><a href="#line321" class="IdrisLineNumber"> 321 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;fuzzy&nbsp;[packages]&nbsp;&lt;query&gt;</span></div>
-<div id="line322"><a href="#line322" class="IdrisLineNumber"> 322 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Run&nbsp;a&nbsp;fuzzy&nbsp;search&nbsp;by&nbsp;type&nbsp;over&nbsp;a&nbsp;comma-separated&nbsp;list&nbsp;of&nbsp;packages.</span></div>
-<div id="line323"><a href="#line323" class="IdrisLineNumber"> 323 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;no&nbsp;packages&nbsp;are&nbsp;given,&nbsp;all&nbsp;installed&nbsp;packages&nbsp;will&nbsp;be&nbsp;queried</span></div>
-<div id="line324"><a href="#line324" class="IdrisLineNumber"> 324 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(which&nbsp;might&nbsp;take&nbsp;several&nbsp;minutes).</span></div>
-<div id="line325"><a href="#line325" class="IdrisLineNumber"> 325 | </a></div>
-<div id="line326"><a href="#line326" class="IdrisLineNumber"> 326 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Examples:&nbsp;fuzzy&nbsp;base&nbsp;&quot;HasIO&nbsp;-&gt;&nbsp;Bool&quot;,&nbsp;will&nbsp;find&nbsp;functions&nbsp;taking</span></div>
-<div id="line327"><a href="#line327" class="IdrisLineNumber"> 327 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;an&nbsp;argument&nbsp;of&nbsp;type&nbsp;`HasIO`&nbsp;and&nbsp;returning&nbsp;a&nbsp;boolean&nbsp;result.</span></div>
-<div id="line328"><a href="#line328" class="IdrisLineNumber"> 328 | </a></div>
-<div id="line329"><a href="#line329" class="IdrisLineNumber"> 329 | </a></div>
-<div id="line330"><a href="#line330" class="IdrisLineNumber"> 330 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;package-path</span></div>
-<div id="line331"><a href="#line331" class="IdrisLineNumber"> 331 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return&nbsp;a&nbsp;colon-separated&nbsp;list&nbsp;of&nbsp;paths&nbsp;where&nbsp;packages&nbsp;are</span></div>
-<div id="line332"><a href="#line332" class="IdrisLineNumber"> 332 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;installed.&nbsp;This&nbsp;is&nbsp;useful&nbsp;for&nbsp;programs&nbsp;like&nbsp;`idris2-lsp`,</span></div>
-<div id="line333"><a href="#line333" class="IdrisLineNumber"> 333 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which&nbsp;need&nbsp;to&nbsp;know&nbsp;where&nbsp;to&nbsp;look&nbsp;for&nbsp;installed&nbsp;packages.</span></div>
-<div id="line334"><a href="#line334" class="IdrisLineNumber"> 334 | </a></div>
-<div id="line335"><a href="#line335" class="IdrisLineNumber"> 335 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;libs-path</span></div>
-<div id="line336"><a href="#line336" class="IdrisLineNumber"> 336 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return&nbsp;a&nbsp;colon-separated&nbsp;list&nbsp;of&nbsp;paths&nbsp;where&nbsp;libraries</span></div>
-<div id="line337"><a href="#line337" class="IdrisLineNumber"> 337 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;code&nbsp;generation&nbsp;are&nbsp;installed.</span></div>
-<div id="line338"><a href="#line338" class="IdrisLineNumber"> 338 | </a></div>
-<div id="line339"><a href="#line339" class="IdrisLineNumber"> 339 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;data-path</span></div>
-<div id="line340"><a href="#line340" class="IdrisLineNumber"> 340 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return&nbsp;a&nbsp;colon-separated&nbsp;list&nbsp;of&nbsp;paths&nbsp;where&nbsp;data&nbsp;files</span></div>
-<div id="line341"><a href="#line341" class="IdrisLineNumber"> 341 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;installed.</span></div>
-<div id="line342"><a href="#line342" class="IdrisLineNumber"> 342 | </a></div>
-<div id="line343"><a href="#line343" class="IdrisLineNumber"> 343 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;app-path&nbsp;&lt;pkgname&gt;</span></div>
-<div id="line344"><a href="#line344" class="IdrisLineNumber"> 344 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return&nbsp;the&nbsp;absolute&nbsp;path&nbsp;to&nbsp;the&nbsp;given&nbsp;application&nbsp;managed&nbsp;by&nbsp;pack.</span></div>
-<div id="line345"><a href="#line345" class="IdrisLineNumber"> 345 | </a><span class="IdrisData">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pack&nbsp;app-path&nbsp;idris2`&nbsp;returns&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;current&nbsp;Idris&nbsp;compiler</span></div>
-<div id="line346"><a href="#line346" class="IdrisLineNumber"> 346 | </a><span class="IdrisData">&nbsp;&nbsp;&quot;&quot;&quot;</span></div>
-<div id="line347"><a href="#line347" class="IdrisLineNumber"> 347 | </a></div>
+<div id="line207"><a href="#line207" class="IdrisLineNumber"> 207 | </a><span class="IdrisData">&nbsp;&nbsp;Available&nbsp;commands:</span></div>
+<div id="line208"><a href="#line208" class="IdrisLineNumber"> 208 | </a><span class="IdrisData">&nbsp;&nbsp;\{</span><span class="IdrisFunction">unlines</span><span class="IdrisData">&nbsp;$&nbsp;</span><span class="IdrisFunction">map</span><span class="IdrisData">&nbsp;</span><span class="IdrisKeyword">(</span><span class="IdrisFunction">indent</span><span class="IdrisData">&nbsp;2&nbsp;</span><span class="IdrisFunction">.</span><span class="IdrisData">&nbsp;</span><span class="IdrisFunction">fst</span><span class="IdrisKeyword">)</span><span class="IdrisData">&nbsp;</span><span class="IdrisFunction">namesAndCommands</span><span class="IdrisData">}</span></div>
+<div id="line209"><a href="#line209" class="IdrisLineNumber"> 209 | </a><span class="IdrisData">&nbsp;&nbsp;&quot;&quot;&quot;</span></div>
+<div id="line210"><a href="#line210" class="IdrisLineNumber"> 210 | </a></div>
 </code>
 </body>
 </html>
