@@ -1,4 +1,5 @@
 <!DOCTYPE html><html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Control.Function.FunExt</title>
@@ -31,10 +32,12 @@
     }
     </script>
 </head>
+
 <body class="namespace">
 <header>
   <strong>Idris2Doc</strong> : Control.Function.FunExt
   <nav><a href="../index.html">Index</a>
+
   <select id="selectPreferredStyle">
     <option value="default">Default</option>
 <option value="alternative">Alternative</option>
@@ -42,9 +45,11 @@
 
   </select>
   </nav>
+
   <script>
   /* We start by initialising the style source */
   initStyleSource();
+
   /* This listens for changes on the drop down menu and updates the
      css used for the current page when a selection is made.
   */
@@ -54,5 +59,6 @@
     saveStyleSource (selected);
   });
 </script>
+
 </header>
-<div class="container"><div id="module-header"><h1>Control.Function.FunExt</h1><span style="float:right">(<a href="Control.Function.FunExt.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Control.Function.FunExt.FunExt"><code><span class="keyword">interface</span>&ensp;<a class="type" href="Control.Function.FunExt.html#Control.Function.FunExt.FunExt"><span class="name type">FunExt</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  This interface contains a proposition for the function extensionality.<br>  It is not meant to be ever implemented.<br>  It can be used to mark properties as requiring function extensionality to hold,<br>  i.e. its main objective is to provide a universal way to formulate a conditional property<br>  that holds only in the presence of function extensionality.</pre><br>  <b>Methods</b>:<br><dl class="decls">  <dt id="Control.Function.FunExt.funExt"><code><a class="type" href="Control.Function.FunExt.html#Control.Function.FunExt.funExt"><span class="name function">funExt</span></a>&ensp;:&ensp;{<span class="keyword">0</span>&ensp;<span class="boundvar">b</span>&ensp;:&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;((<span class="boundvar">x</span>&ensp;:&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">x</span>&ensp;<span class="keyword">=</span>&ensp;<span class="boundvar">g</span>&ensp;<span class="boundvar">x</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">=</span>&ensp;<span class="boundvar">g</span></code></dt></dl></dd><dt id="Control.Function.FunExt.funExt"><code><a class="type" href="Control.Function.FunExt.html#Control.Function.FunExt.funExt"><span class="name function">funExt</span></a>&ensp;:&ensp;<a class="type" href="Control.Function.FunExt.html#Control.Function.FunExt.FunExt"><span class="name type">FunExt</span></a>&ensp;<span class="keyword">=&gt;</span>&ensp;{<span class="keyword">0</span>&ensp;<span class="boundvar">b</span>&ensp;:&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;((<span class="boundvar">x</span>&ensp;:&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">x</span>&ensp;<span class="keyword">=</span>&ensp;<span class="boundvar">g</span>&ensp;<span class="boundvar">x</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">=</span>&ensp;<span class="boundvar">g</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.5.1-b1f2eab6d</footer></body></html>
+<div class="container"><div id="module-header"><h1>Control.Function.FunExt</h1><span style="float:right">(<a href="Control.Function.FunExt.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Control.Function.FunExt.FunExt"><code><span class="keyword">interface</span>&ensp;<a class="type" href="Control.Function.FunExt.html#Control.Function.FunExt.FunExt"><span class="name type">FunExt</span></a>&ensp;:&ensp;<span class="name type">Type</span></code></dt><dd><pre>  This interface contains a proposition for the function extensionality.<br>  It is not meant to be ever implemented.<br>  It can be used to mark properties as requiring function extensionality to hold,<br>  i.e. its main objective is to provide a universal way to formulate a conditional property<br>  that holds only in the presence of function extensionality.</pre><br>  <b>Methods</b>:<br><dl class="decls">  <dt id="Control.Function.FunExt.funExt"><code><a class="type" href="Control.Function.FunExt.html#Control.Function.FunExt.funExt"><span class="name function">funExt</span></a>&ensp;:&ensp;{<span class="keyword">0</span>&ensp;<span class="boundvar">b</span>&ensp;:&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;((<span class="boundvar">x</span>&ensp;:&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">x</span>&ensp;<span class="keyword">=</span>&ensp;<span class="boundvar">g</span>&ensp;<span class="boundvar">x</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">=</span>&ensp;<span class="boundvar">g</span></code></dt></dl></dd><dt id="Control.Function.FunExt.funExt"><code><a class="type" href="Control.Function.FunExt.html#Control.Function.FunExt.funExt"><span class="name function">funExt</span></a>&ensp;:&ensp;<a class="type" href="Control.Function.FunExt.html#Control.Function.FunExt.FunExt"><span class="name type">FunExt</span></a>&ensp;<span class="keyword">=&gt;</span>&ensp;{<span class="keyword">0</span>&ensp;<span class="boundvar">b</span>&ensp;:&ensp;<span class="boundvar">a</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">Type</span>}&ensp;<span class="keyword">-&gt;</span>&ensp;((<span class="boundvar">x</span>&ensp;:&ensp;<span class="boundvar">a</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="boundvar">x</span>&ensp;<span class="keyword">=</span>&ensp;<span class="boundvar">g</span>&ensp;<span class="boundvar">x</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">f</span>&ensp;<span class="keyword">=</span>&ensp;<span class="boundvar">g</span></code></dt><dd>  <b>Totality</b>:&ensp;<span class="keyword">total</span><br>  <b>Visibility</b>:&ensp;<span class="keyword">public&ensp;export</span></dd></dl></div><footer>Produced by Idris 2 version 0.5.1-57c589ca8</footer></body></html>

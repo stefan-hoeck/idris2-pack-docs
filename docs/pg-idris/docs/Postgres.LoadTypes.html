@@ -1,4 +1,5 @@
 <!DOCTYPE html><html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Postgres.LoadTypes</title>
@@ -31,10 +32,12 @@
     }
     </script>
 </head>
+
 <body class="namespace">
 <header>
   <strong>Idris2Doc</strong> : Postgres.LoadTypes
   <nav><a href="../index.html">Index</a>
+
   <select id="selectPreferredStyle">
     <option value="default">Default</option>
 <option value="alternative">Alternative</option>
@@ -42,9 +45,11 @@
 
   </select>
   </nav>
+
   <script>
   /* We start by initialising the style source */
   initStyleSource();
+
   /* This listens for changes on the drop down menu and updates the
      css used for the current page when a selection is made.
   */
@@ -54,5 +59,6 @@
     saveStyleSource (selected);
   });
 </script>
+
 </header>
-<div class="container"><div id="module-header"><h1>Postgres.LoadTypes</h1><span style="float:right">(<a href="Postgres.LoadTypes.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Postgres.LoadTypes.pgLoadTypes"><code><a class="type" href="Postgres.LoadTypes.html#Postgres.LoadTypes.pgLoadTypes"><span class="name function">pgLoadTypes</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.IO.HasIO"><span class="name type">HasIO</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Postgres.Data.Conn.html#Postgres.Data.Conn.Conn"><span class="name type">Conn</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">io</span>&ensp;(<span class="type resolved" title="Prelude.Types.Either"><span class="name type">Either</span></span>&ensp;<span class="name type">String</span>&ensp;<a class="type" href="Postgres.Data.PostgresType.html#Postgres.Data.PostgresType.TypeDictionary"><span class="name type">TypeDictionary</span></a>)</code></dt><dd><pre>  Load Postgres types into a type dictionary. This is needed so that future queries<br>  can identify the types of columns in responses.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.5.1-b1f2eab6d</footer></body></html>
+<div class="container"><div id="module-header"><h1>Postgres.LoadTypes</h1><span style="float:right">(<a href="Postgres.LoadTypes.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Postgres.LoadTypes.pgLoadTypes"><code><a class="type" href="Postgres.LoadTypes.html#Postgres.LoadTypes.pgLoadTypes"><span class="name function">pgLoadTypes</span></a>&ensp;:&ensp;<span class="type resolved" title="Prelude.IO.HasIO"><span class="name type">HasIO</span></span>&ensp;<span class="boundvar">io</span>&ensp;<span class="keyword">=&gt;</span>&ensp;<a class="type" href="Postgres.Data.Conn.html#Postgres.Data.Conn.Conn"><span class="name type">Conn</span></a>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="boundvar">io</span>&ensp;(<span class="type resolved" title="Prelude.Types.Either"><span class="name type">Either</span></span>&ensp;<span class="name type">String</span>&ensp;<a class="type" href="Postgres.Data.PostgresType.html#Postgres.Data.PostgresType.TypeDictionary"><span class="name type">TypeDictionary</span></a>)</code></dt><dd><pre>  Load Postgres types into a type dictionary. This is needed so that future queries<br>  can identify the types of columns in responses.</pre><br>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.5.1-57c589ca8</footer></body></html>

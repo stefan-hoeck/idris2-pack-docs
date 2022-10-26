@@ -1,4 +1,5 @@
 <!DOCTYPE html><html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>API</title>
@@ -31,10 +32,12 @@
     }
     </script>
 </head>
+
 <body class="namespace">
 <header>
   <strong>Idris2Doc</strong> : API
   <nav><a href="../index.html">Index</a>
+
   <select id="selectPreferredStyle">
     <option value="default">Default</option>
 <option value="alternative">Alternative</option>
@@ -42,9 +45,11 @@
 
   </select>
   </nav>
+
   <script>
   /* We start by initialising the style source */
   initStyleSource();
+
   /* This listens for changes on the drop down menu and updates the
      css used for the current page when a selection is made.
   */
@@ -54,5 +59,6 @@
     saveStyleSource (selected);
   });
 </script>
+
 </header>
-<div class="container"><div id="module-header"><h1>API</h1><span style="float:right">(<a href="API.src.html">source</a>)</span><pre></pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Core</code><h2>Definitions</h2><dl class="decls"><dt id="API.run"><code><a class="type" href="API.html#API.run"><span class="name function">run</span></a>&ensp;:&ensp;(<span class="boundvar">re</span>&ensp;:&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;(<a class="type" href="Core.html#Core.Shape"><span class="name function">Shape</span></a>&ensp;<span class="boundvar">re</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="API.getTokenCore"><code><a class="type" href="API.html#API.getTokenCore"><span class="name function">getTokenCore</span></a>&ensp;:&ensp;(<span class="boundvar">re</span>&ensp;:&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Stream.Stream"><span class="name type">Stream</span></span>&ensp;<span class="name type">Char</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;(<a class="type" href="Core.html#Core.Shape"><span class="name function">Shape</span></a>&ensp;<span class="boundvar">re</span>,&ensp;<span class="type resolved" title="Prelude.Types.Stream.Stream"><span class="name type">Stream</span></span>&ensp;<span class="name type">Char</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="API.asDisjoinMatchesCore"><code><a class="type" href="API.html#API.asDisjoinMatchesCore"><span class="name function">asDisjoinMatchesCore</span></a>&ensp;:&ensp;(<span class="boundvar">re</span>&ensp;:&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="DisjointMatches.html#DisjointMatches.DisjointMatches"><span class="name type">DisjointMatches</span></a>&ensp;(<a class="type" href="Core.html#Core.Shape"><span class="name function">Shape</span></a>&ensp;<span class="boundvar">re</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.5.1-b1f2eab6d</footer></body></html>
+<div class="container"><div id="module-header"><h1>API</h1><span style="float:right">(<a href="API.src.html">source</a>)</span><pre></pre></div><h2>Reexports</h2><code><span class="keyword">import</span>&ensp;<span class="keyword">public</span>&ensp;Core</code><h2>Definitions</h2><dl class="decls"><dt id="API.run"><code><a class="type" href="API.html#API.run"><span class="name function">run</span></a>&ensp;:&ensp;(<span class="boundvar">re</span>&ensp;:&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;(<a class="type" href="Core.html#Core.Shape"><span class="name function">Shape</span></a>&ensp;<span class="boundvar">re</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="API.getTokenCore"><code><a class="type" href="API.html#API.getTokenCore"><span class="name function">getTokenCore</span></a>&ensp;:&ensp;(<span class="boundvar">re</span>&ensp;:&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Stream.Stream"><span class="name type">Stream</span></span>&ensp;<span class="name type">Char</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;(<a class="type" href="Core.html#Core.Shape"><span class="name function">Shape</span></a>&ensp;<span class="boundvar">re</span>,&ensp;<span class="type resolved" title="Prelude.Types.Stream.Stream"><span class="name type">Stream</span></span>&ensp;<span class="name type">Char</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd><dt id="API.asDisjoinMatchesCore"><code><a class="type" href="API.html#API.asDisjoinMatchesCore"><span class="name function">asDisjoinMatchesCore</span></a>&ensp;:&ensp;(<span class="boundvar">re</span>&ensp;:&ensp;<a class="type" href="Core.html#Core.CoreRE"><span class="name type">CoreRE</span></a>)&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="name type">String</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<a class="type" href="DisjointMatches.html#DisjointMatches.DisjointMatches"><span class="name type">DisjointMatches</span></a>&ensp;(<a class="type" href="Core.html#Core.Shape"><span class="name function">Shape</span></a>&ensp;<span class="boundvar">re</span>)</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.5.1-57c589ca8</footer></body></html>

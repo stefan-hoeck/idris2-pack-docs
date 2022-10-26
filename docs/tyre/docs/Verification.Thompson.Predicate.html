@@ -1,4 +1,5 @@
 <!DOCTYPE html><html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Verification.Thompson.Predicate</title>
@@ -31,10 +32,12 @@
     }
     </script>
 </head>
+
 <body class="namespace">
 <header>
   <strong>Idris2Doc</strong> : Verification.Thompson.Predicate
   <nav><a href="../index.html">Index</a>
+
   <select id="selectPreferredStyle">
     <option value="default">Default</option>
 <option value="alternative">Alternative</option>
@@ -42,9 +45,11 @@
 
   </select>
   </nav>
+
   <script>
   /* We start by initialising the style source */
   initStyleSource();
+
   /* This listens for changes on the drop down menu and updates the
      css used for the current page when a selection is made.
   */
@@ -54,5 +59,6 @@
     saveStyleSource (selected);
   });
 </script>
+
 </header>
-<div class="container"><div id="module-header"><h1>Verification.Thompson.Predicate</h1><span style="float:right">(<a href="Verification.Thompson.Predicate.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Verification.Thompson.Predicate.thompsonRoutinePrfPredicate"><code><a class="type" href="Verification.Thompson.Predicate.html#Verification.Thompson.Predicate.thompsonRoutinePrfPredicate"><span class="name function">thompsonRoutinePrfPredicate</span></a>&ensp;:&ensp;(<span class="boundvar">f</span>&ensp;:&ensp;(<span class="name type">Char</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span>))&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">acc</span>&ensp;:&ensp;<a class="type" href="Verification.AcceptingPath.html#Verification.AcceptingPath.Accepting"><span class="name type">Accepting</span></a>&ensp;(<a class="type" href="NFA.html#NFA.smToNFA"><span class="name function">smToNFA</span></a>&ensp;(<a class="type" href="Thompson.html#Thompson.smForPred"><span class="name function">smForPred</span></a>&ensp;<span class="boundvar">f</span>))&ensp;<span class="boundvar">word</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">mcvm</span>&ensp;:&ensp;(<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;<span class="name type">Char</span>,&ensp;<a class="type" href="NFA.html#NFA.VMState"><span class="name type">VMState</span></a>))&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">ev</span>&ensp;:&ensp;<a class="type" href="Evidence.html#Evidence.Evidence"><span class="name function">Evidence</span></a>&ensp;<span class="keyword">**</span>&ensp;(<a class="type" href="Verification.Routine.html#Verification.Routine.executeRoutineFrom"><span class="name function">executeRoutineFrom</span></a>&ensp;(<a class="type" href="Verification.Routine.html#Verification.Routine.extractRoutine"><span class="name function">extractRoutine</span></a>&ensp;<span class="boundvar">acc</span>)&ensp;<span class="boundvar">mcvm</span>&ensp;<span class="keyword">=</span>&ensp;(<span class="type resolved" title="Builtin.snd"><span class="name function">snd</span></span>&ensp;<span class="boundvar">mcvm</span>)&ensp;<span class="type resolved" title="NFA.VMState.(.evidence)"><span class="name function">.evidence</span></span>&ensp;<span class="type resolved" title="Prelude.Types.SnocList.++"><span class="name function">++</span></span>&ensp;<span class="boundvar">ev</span>,&ensp;<a class="type" href="Evidence.html#Evidence.Encodes"><span class="name type">Encodes</span></a>&ensp;<span class="boundvar">ev</span>&ensp;[&lt;<span class="type resolved" title="Prelude.Types.Right"><span class="name constructor">Right</span></span>&ensp;<a class="type" href="Codes.html#Codes.CharC"><span class="name constructor">CharC</span></a>]))</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.5.1-b1f2eab6d</footer></body></html>
+<div class="container"><div id="module-header"><h1>Verification.Thompson.Predicate</h1><span style="float:right">(<a href="Verification.Thompson.Predicate.src.html">source</a>)</span><pre></pre></div><code></code><h2>Definitions</h2><dl class="decls"><dt id="Verification.Thompson.Predicate.thompsonRoutinePrfPredicate"><code><a class="type" href="Verification.Thompson.Predicate.html#Verification.Thompson.Predicate.thompsonRoutinePrfPredicate"><span class="name function">thompsonRoutinePrfPredicate</span></a>&ensp;:&ensp;(<span class="boundvar">f</span>&ensp;:&ensp;(<span class="name type">Char</span>&ensp;<span class="keyword">-&gt;</span>&ensp;<span class="type resolved" title="Prelude.Basics.Bool"><span class="name type">Bool</span></span>))&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">acc</span>&ensp;:&ensp;<a class="type" href="Verification.AcceptingPath.html#Verification.AcceptingPath.Accepting"><span class="name type">Accepting</span></a>&ensp;(<a class="type" href="NFA.html#NFA.smToNFA"><span class="name function">smToNFA</span></a>&ensp;(<a class="type" href="Thompson.html#Thompson.smForPred"><span class="name function">smForPred</span></a>&ensp;<span class="boundvar">f</span>))&ensp;<span class="boundvar">word</span>)&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">mcvm</span>&ensp;:&ensp;(<span class="type resolved" title="Prelude.Types.Maybe"><span class="name type">Maybe</span></span>&ensp;<span class="name type">Char</span>,&ensp;<a class="type" href="NFA.html#NFA.VMState"><span class="name type">VMState</span></a>))&ensp;<span class="keyword">-&gt;</span>&ensp;(<span class="boundvar">ev</span>&ensp;:&ensp;<a class="type" href="Evidence.html#Evidence.Evidence"><span class="name function">Evidence</span></a>&ensp;<span class="keyword">**</span>&ensp;(<a class="type" href="Verification.Routine.html#Verification.Routine.executeRoutineFrom"><span class="name function">executeRoutineFrom</span></a>&ensp;(<a class="type" href="Verification.Routine.html#Verification.Routine.extractRoutine"><span class="name function">extractRoutine</span></a>&ensp;<span class="boundvar">acc</span>)&ensp;<span class="boundvar">mcvm</span>&ensp;<span class="keyword">=</span>&ensp;(<span class="type resolved" title="Builtin.snd"><span class="name function">snd</span></span>&ensp;<span class="boundvar">mcvm</span>)&ensp;<span class="type resolved" title="NFA.VMState.(.evidence)"><span class="name function">.evidence</span></span>&ensp;<span class="type resolved" title="Prelude.Types.SnocList.++"><span class="name function">++</span></span>&ensp;<span class="boundvar">ev</span>,&ensp;<a class="type" href="Evidence.html#Evidence.Encodes"><span class="name type">Encodes</span></a>&ensp;<span class="boundvar">ev</span>&ensp;[&lt;<span class="type resolved" title="Prelude.Types.Right"><span class="name constructor">Right</span></span>&ensp;<a class="type" href="Codes.html#Codes.CharC"><span class="name constructor">CharC</span></a>]))</code></dt><dd>  <b>Visibility</b>:&ensp;<span class="keyword">export</span></dd></dl></div><footer>Produced by Idris 2 version 0.5.1-57c589ca8</footer></body></html>
